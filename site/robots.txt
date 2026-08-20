@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+Disallow: /revisor-categorias/
 Sitemap: https://caborge.com.br/sitemap.xml
