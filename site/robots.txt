@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /revisor-categorias/
+Disallow: /duelo/
 Sitemap: https://caborge.com.br/sitemap.xml

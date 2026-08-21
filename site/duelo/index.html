@@ -1,0 +1,129 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Duelo de Categorias - CABORGE</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{font-family:'Plus Jakarta Sans',Arial,sans-serif;margin:0;background:#eef1f7;color:#0D1B3E}
+header{background:linear-gradient(160deg,#0D1B3E,#1a1060 60%,#0a2818);color:#fff;padding:12px 16px;
+  display:flex;gap:10px;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:9}
+header h1{font-size:16px;margin:0;font-weight:800}
+.cont{font-size:13px;color:#c9d4ff;font-weight:700}
+main{max-width:760px;margin:0 auto;padding:18px}
+.cx{background:#fff;border-radius:14px;padding:22px;box-shadow:0 2px 10px rgba(13,27,62,.12)}
+h2{font-size:20px;margin:0 0 6px}
+.sub{color:#6b7699;font-size:13px;margin-bottom:16px}
+ol{padding-left:20px;line-height:1.8;font-size:14px}
+.barra{height:9px;background:#dde3f0;border-radius:8px;overflow:hidden;margin:12px 0 18px}
+.barra div{height:100%;background:linear-gradient(90deg,#7B61FF,#43E97B);transition:width .25s}
+.foto{width:100%;max-width:290px;height:250px;object-fit:contain;display:block;margin:0 auto 6px;
+  background:#f7f9fc;border-radius:12px}
+.nome{font-size:18px;font-weight:800;text-align:center;line-height:1.3;margin:8px 0 4px}
+.cod{text-align:center;color:#8a94b3;font-size:12px;margin-bottom:18px}
+.ops{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.op{background:#fff;border:3px solid #e3e8f3;border-radius:12px;padding:20px 12px;cursor:pointer;
+  text-align:center;font-weight:800;font-size:15px;transition:.12s;font-family:inherit;color:#0D1B3E}
+.op:hover{border-color:#4FACFE;transform:translateY(-2px)}
+.bt{font-family:inherit;font-weight:800;font-size:14px;padding:12px 18px;border-radius:10px;
+  border:0;cursor:pointer;margin-top:14px;width:100%}
+.nenhuma{background:#fff3f3;color:#a11}
+.verde{background:#43E97B;color:#06281a}
+.placar{text-align:center;padding:20px 0}
+.placar .n{font-size:52px;font-weight:800;line-height:1}
+.linha{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #eef1f7;font-size:15px}
+.linha b{font-size:17px}
+.venc{background:#f2fff8;border:2px solid #43E97B;border-radius:12px;padding:16px;margin-top:16px;
+  font-size:15px;line-height:1.6}
+@media(max-width:520px){.ops{grid-template-columns:1fr}.foto{height:200px}}
+</style></head><body>
+<header><h1>Duelo de Categorias &middot; CABORGE</h1><span class="cont" id="cont"></span></header>
+<main id="app"></main>
+<script>
+var ITENS = [{"n": "ESP GIRATORIO METAL FEMEA PARA OXIGENIO CARBOGRAFITE", "f": "ESP_GIRATORIO_METAL_FEMEA_PARA_OXIGENIO_CARBOGRAFITE.webp", "c": "11552", "a": "Solda e Gás", "b": "Pneumática e Ar Comprimido", "q": "A"}, {"n": "RESISTENCIA LOREN MAXI DUCHA LORENZETTI", "f": "RESISTENCIA_LOREN_MAXI_DUCHA_LORENZETTI.webp", "c": "3590, 2726", "a": "Hidráulica e Conexões", "b": "Elétrica", "q": "A"}, {"n": "CALIBRE DE ROSCA LAMINAS ZAAS", "f": "CALIBRE_DE_ROSCA_LAMINAS_ZAAS.webp", "c": "7484", "a": "Pintura", "b": "Medição e Teste", "q": "B"}, {"n": "MOLA DE COMPRESSAO COD GK MOLAS", "f": "MOLA_DE_COMPRESSAO_COD_GK_MOLAS.webp", "c": "21677", "a": "Transmissão e Movimentação", "b": "Ferragens", "q": "B"}, {"n": "JOGO ANEL O-RING", "f": "JOGO_ANEL_O_RING.webp", "c": "12568, 17004, 3658", "a": "Hidráulica e Conexões", "b": "Vedação e Borrachas", "q": "B"}, {"n": "BOTAO PULSADOR DUPLO S/LED NA+NF SOPRANO", "f": "BOTAO_PULSADOR_DUPLO_S_LED_NA_NF_SOPRANO.webp", "c": "14122", "a": "EPI e Segurança", "b": "Elétrica", "q": "B"}, {"n": "ADITIVO RADIADOR FLEX LITRO GT2000", "f": "ADITIVO_RADIADOR_FLEX_LITRO_GT2000.webp", "c": "15897", "a": "Adesivos, Vedantes e Químicos", "b": "Automotivo", "q": "B"}, {"n": "TAMPA PLASTICA PARA VALVULA TV02 RF", "f": "TAMPA_PLASTICA_PARA_VALVULA_TV02_RF.webp", "c": "7507", "a": "Hidráulica e Conexões", "b": "Pneumática e Ar Comprimido", "q": "B"}, {"n": "COTOVELO PVC MACHO X M5 CURTO CONECFIT", "f": "COTOVELO_PVC_MACHO_X_M5_CURTO_CONECFIT.webp", "c": "19429", "a": "Hidráulica e Conexões", "b": "Pneumática e Ar Comprimido", "q": "B"}, {"n": "TUBO FLEXIVEL PARA CADEIRA AZUL IBIRA", "f": "TUBO_FLEXIVEL_PARA_CADEIRA_AZUL_IBIRA.webp", "c": "22132", "a": "Hidráulica e Conexões", "b": "Mangueiras e Acoplamentos", "q": "B"}, {"n": "EXTENSAO RIGIDA CURVA PARA BOMBA DE GRAXA LUBEFER", "f": "EXTENSAO_RIGIDA_CURVA_PARA_BOMBA_DE_GRAXA_LUBEFER.webp", "c": "6397", "a": "Elétrica", "b": "Adesivos, Vedantes e Químicos", "q": "B"}, {"n": "KIT PONTEIRAS COM COM GUIA DEWALT", "f": "KIT_PONTEIRAS_COM_COM_GUIA_DEWALT.webp", "c": "10928", "a": "Fixação", "b": "Abrasivos e Corte", "q": "B"}, {"n": "SOQUETE INCANDESCENTE COM BASE BRANCO ILUMI", "f": "SOQUETE_INCANDESCENTE_COM_BASE_BRANCO_ILUMI.webp", "c": "9758", "a": "Elétrica", "b": "Ferramentas Manuais", "q": "A"}, {"n": "PAQUIMETRO FIBRA DE CARBONO DIGITAL ZAAS", "f": "PAQUIMETRO_FIBRA_DE_CARBONO_DIGITAL_ZAAS.webp", "c": "18230", "a": "Ferramentas Manuais", "b": "Medição e Teste", "q": "B"}, {"n": "CONECTOR MACHO COBRE 12XM , MDM", "f": "CONECTOR_MACHO_COBRE_12XM_MDM.webp", "c": "13624", "a": "Elétrica", "b": "Pneumática e Ar Comprimido", "q": "B"}, {"n": "CABO MADEIRA PARA PA Y PLASTICO 90025PANDOFO", "f": "CABO_MADEIRA_PARA_PA_Y_PLASTICO_90025PANDOFO.webp", "c": "22620", "a": "Ferramentas Manuais", "b": "Elétrica", "q": "A"}, {"n": "TUBO NYLON AZUL MM5. OLIVERPLAST", "f": "TUBO_NYLON_AZUL_MM5_OLIVERPLAST.webp", "c": "23758", "a": "Hidráulica e Conexões", "b": "Pneumática e Ar Comprimido", "q": "B"}, {"n": "PLUG GALVANIZADO IPC", "f": "PLUG_GALVANIZADO_IPC.webp", "c": "21154, 21163, 21169", "a": "Elétrica", "b": "Pneumática e Ar Comprimido", "q": "B"}, {"n": "MASSA BRANCA LA RODASIL", "f": "MASSA_BRANCA_LA_RODASIL.webp", "c": "23208", "a": "Pintura", "b": "Abrasivos e Corte", "q": "B"}, {"n": "REGULADOR GAS COM MANOMETRO ALIANCA", "f": "REGULADOR_GAS_COM_MANOMETRO_ALIANCA.webp", "c": "12419", "a": "Solda e Gás", "b": "Pneumática e Ar Comprimido", "q": "A"}, {"n": "ENGATE MACHO COM ESCAMA MS-ER GABITEC", "f": "ENGATE_MACHO_COM_ESCAMA_MS_ER_GABITEC.webp", "c": "22818, 22827", "a": "Pneumática e Ar Comprimido", "b": "Mangueiras e Acoplamentos", "q": "B"}, {"n": "PLACA TECLA BRANCA ILUMI", "f": "PLACA_TECLA_BRANCA_ILUMI.webp", "c": "9832, 9833", "a": "Elétrica", "b": "Sinalização", "q": "A"}, {"n": "PILHA BATERIA LITIO CR2032 RAYOVAC", "f": "PILHA_BATERIA_LITIO_CR2032_RAYOVAC.webp", "c": "18996", "a": "Papelaria e Informática", "b": "Limpeza e Utilidades", "q": "B"}, {"n": "VELA DE INGNICAO L7T CURTA SPIN", "f": "VELA_DE_INGNICAO_L7T_CURTA_SPIN.webp", "c": "10010", "a": "Jardim e Agro", "b": "Peças e Partes de Máquinas", "q": "B"}, {"n": "MACARICO SOLDA GAZ PRIX LOTUS", "f": "MACARICO_SOLDA_GAZ_PRIX_LOTUS.webp", "c": "24045", "a": "Solda e Gás", "b": "Solda", "q": "A"}, {"n": "VALVULA SEGURANCA MINI BAR PSI NPT MDM", "f": "VALVULA_SEGURANCA_MINI_BAR_PSI_NPT_MDM.webp", "c": "17922", "a": "Pneumática e Ar Comprimido", "b": "Hidráulica e Conexões", "q": "A"}, {"n": "FITA DRYWALL 48MMX AZUL PLUS LOTUS", "f": "FITA_DRYWALL_48MMX_AZUL_PLUS_LOTUS.webp", "c": "24016", "a": "Adesivos, Vedantes e Químicos", "b": "Pintura", "q": "B"}, {"n": "PILHA BATERIA PARA INTRUMENTOS DE METROLOGIA LR- ZAAS", "f": "PILHA_BATERIA_PARA_INTRUMENTOS_DE_METROLOGIA_LR_ZAAS.webp", "c": "15872", "a": "Medição e Teste", "b": "Elétrica", "q": "A"}, {"n": "PROTETOR DE CORREIAS M500", "f": "PROTETOR_DE_CORREIAS_M500.webp", "c": "15916", "a": "EPI e Segurança", "b": "Adesivos, Vedantes e Químicos", "q": "B"}, {"n": "TAMPAO METAL MACHO SEXTAVADO COM ORIMG M , MDM", "f": "TAMPAO_METAL_MACHO_SEXTAVADO_COM_ORIMG_M_MDM.webp", "c": "18188", "a": "Pneumática e Ar Comprimido", "b": "Fixação", "q": "B"}, {"n": "ENGATE RAPIDO HIDR ACOPL FEMEA NPT FACE PLANA IME", "f": "ENGATE_RAPIDO_HIDR_ACOPL_FEMEA_NPT_FACE_PLANA_IME.webp", "c": "24120", "a": "Mangueiras e Acoplamentos", "b": "Pneumática e Ar Comprimido", "q": "A"}, {"n": "GRAMPO TIPO C FLEX LOTUS", "f": "GRAMPO_TIPO_C_FLEX_LOTUS.webp", "c": "20664, 20665, 20666", "a": "Ferramentas Manuais", "b": "Fixação", "q": "B"}, {"n": "BALDE GRAXA JHF4X HYDRONLUBZ", "f": "BALDE_GRAXA_JHF4X_HYDRONLUBZ.webp", "c": "13795", "a": "Limpeza e Utilidades", "b": "Adesivos, Vedantes e Químicos", "q": "B"}, {"n": "TESTADOR GR INTERNEED", "f": "TESTADOR_GR_INTERNEED.webp", "c": "125", "a": "Elétrica", "b": "Medição e Teste", "q": "B"}, {"n": "TUBO DE CONTATO LONGO WELD SUMIG", "f": "TUBO_DE_CONTATO_LONGO_WELD_SUMIG.webp", "c": "16818, 14555, 14554", "a": "Solda e Gás", "b": "Hidráulica e Conexões", "q": "A"}, {"n": "ENGATE MACHO COM ESCAMA EMS-E GABITEC", "f": "ENGATE_MACHO_COM_ESCAMA_EMS_E_GABITEC.webp", "c": "22784", "a": "Mangueiras e Acoplamentos", "b": "Pneumática e Ar Comprimido", "q": "A"}, {"n": "FUNIL POLIETILENO COM EXTENSAO REG FPER2C RF", "f": "FUNIL_POLIETILENO_COM_EXTENCAO_REG_FPER2C_RF.webp", "c": "1332", "a": "Hidráulica e Conexões", "b": "Limpeza e Utilidades", "q": "A"}, {"n": "CINTA DE LIXA MADEIRA COM UND MAKITA", "f": "CINTA_DE_LIXA_MADEIRA_COM_UND_MAKITA.webp", "c": "14242, 14243, 14244", "a": "Abrasivos e Corte", "b": "Transmissão e Movimentação", "q": "A"}, {"n": "CAMARA DE AR . -", "f": "CAMARA_DE_AR_.webp", "c": "21411, 23319, 22168", "a": "Automotivo", "b": "Jardim e Agro", "q": "A"}, {"n": "EXTENSAO PARA BICO PLASTICO EXP150 RF", "f": "EXTENSAO_PARA_BICO_PLASTICO_EXP150_RF.webp", "c": "8153", "a": "Pneumática e Ar Comprimido", "b": "Elétrica", "q": "A"}, {"n": "JOELHO TOPAIR TOP FUSIOM", "f": "JOELHO_TOPAIR_TOP_FUSIOM.webp", "c": "20862, 20907, 20860", "a": "Hidráulica e Conexões", "b": "Pneumática e Ar Comprimido", "q": "B"}, {"n": "MANGUEIRA ESPIRAL .5MTX SEM PISTOLA AZUL", "f": "MANGUEIRA_ESPIRAL_5MTX_SEM_PISTOLA_AZUL.webp", "c": "23678, 23699", "a": "Pneumática e Ar Comprimido", "b": "Mangueiras e Acoplamentos", "q": "A"}, {"n": "EXTERMIX", "f": "EXTERMIX.webp", "c": "1744, 2985", "a": "Limpeza e Utilidades", "b": "Adesivos, Vedantes e Químicos", "q": "A"}, {"n": "ENGATE RAPIDO ROLETE MACHO LUB-2000B LUBEFER", "f": "ENGATE_RAPIDO_ROLETE_MACHO_LUB_2000B_LUBEFER.webp", "c": "15440", "a": "Pneumática e Ar Comprimido", "b": "Mangueiras e Acoplamentos", "q": "B"}, {"n": "CONEXAO RETA MACHO BSP BRANCA SC1/ - RF", "f": "CONEXAO_RETA_MACHO_BSP_BRANCA_SC1_RF.webp", "c": "13388", "a": "Hidráulica e Conexões", "b": "Sinalização", "q": "A"}, {"n": "CHAVE MANDRIL LOTUS", "f": "CHAVE_MANDRIL_LOTUS.webp", "c": "19308, 19309", "a": "Peças e Partes de Máquinas", "b": "Ferramentas Manuais", "q": "A"}, {"n": "ANEL BORRACHA ORING M16 MDM", "f": "ANEL_BORRACHA_ORING_M16_MDM.webp", "c": "15789", "a": "Pneumática e Ar Comprimido", "b": "Vedação e Borrachas", "q": "B"}, {"n": "MANDRIL /8XB18 CONICO BRASFORT", "f": "MANDRIL_8XB18_CONICO_BRASFORT.webp", "c": "2629", "a": "Peças e Partes de Máquinas", "b": "Fixação", "q": "A"}, {"n": "EXAUSTOR INDUSTRIAL COM REVERSAO VENTISOL", "f": "EXAUSTOR_INDUSTRIAL_COM_REVERSAO_VENTISOL.webp", "c": "20838, 23196, 23197", "a": "Ferramentas Elétricas", "b": "Elétrica", "q": "A"}, {"n": "MANDRIL COM CHAVE 20UNF PLUS LOTUS", "f": "MANDRIL_COM_CHAVE_20UNF_PLUS_LOTUS.webp", "c": "19310", "a": "Ferramentas Manuais", "b": "Peças e Partes de Máquinas", "q": "B"}, {"n": "CONECTOR AQ RM CPVC DN 22MMX PLASTILIT", "f": "CONECTOR_AQ_RM_CPVC_DN_22MMX_PLASTILIT.webp", "c": "24533", "a": "Hidráulica e Conexões", "b": "Elétrica", "q": "A"}, {"n": "CADEADO STAM", "f": "CADEADO_STAM.webp", "c": "1122, 2739, 3077", "a": "Ferragens", "b": "Fixação", "q": "A"}, {"n": "PAQUIMETRO AÇO INOX - LOTUS", "f": "PAQUIMETRO_A_O_INOX_LOTUS.webp", "c": "19260", "a": "Ferramentas Manuais", "b": "Medição e Teste", "q": "B"}, {"n": "GUIA ESPIRAL . M SU PRETO WELD SUMIG", "f": "GUIA_ESPIRAL_M_SU_PRETO_WELD_SUMIG.webp", "c": "8225", "a": "Solda", "b": "Solda e Gás", "q": "B"}, {"n": "TRAVA DISJUNTOR MANIPULO LH-SHB", "f": "TRAVA_DISJUNTOIR_MANIPULO_LH_SHB.webp", "c": "14548", "a": "Adesivos, Vedantes e Químicos", "b": "Ferragens", "q": "B"}, {"n": "MANGUEIRA TRANCADA PT PSI IBIRA", "f": "MANGUEIRA_TRANCADA_PT_PSI_IBIRA.webp", "c": "21775, 21776", "a": "Mangueiras e Acoplamentos", "b": "Pneumática e Ar Comprimido", "q": "B"}, {"n": "ADAPTADOR ALUMINIO PARA MANGUEIRA GABITEC", "f": "ADAPTADOR_ALUMINIO_PARA_MANGUEIRA_GABITEC.webp", "c": "22438, 22430, 22437", "a": "Mangueiras e Acoplamentos", "b": "Hidráulica e Conexões", "q": "A"}, {"n": "PONTEIRA TORX 050XT27 GEDORE", "f": "PONTEIRA_TORX_050XT27_GEDORE.webp", "c": "24220", "a": "Ferramentas Manuais", "b": "Abrasivos e Corte", "q": "B"}, {"n": "TELEFONE SEM FIO TS COM ID INTELBRAS", "f": "TELEFONE_SEM_FIO_TS_COM_ID_INTELBRAS.webp", "c": "7533, 18064", "a": "Elétrica", "b": "Papelaria e Informática", "q": "A"}, {"n": "PONTEIRA PH1 PHILLIPS MAKITA", "f": "PONTEIRA_PH1_PHILLIPS_MAKITA.webp", "c": "12746", "a": "Fixação", "b": "Abrasivos e Corte", "q": "B"}];
+var CH = 'caborge_duelo';
+var est = JSON.parse(localStorage.getItem(CH) || '{"i":0,"votos":[]}');
+
+function salvar(){ localStorage.setItem(CH, JSON.stringify(est)); }
+function esc(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function votar(escolha){
+  var it = ITENS[est.i];
+  est.votos.push({n: it.n, escolha: escolha, v2: it.q});
+  est.i++; salvar(); render();
+}
+function recomecar(){ est = {i:0, votos:[]}; salvar(); render(); }
+
+function render(){
+  var app = document.getElementById('app');
+  document.getElementById('cont').textContent =
+    est.i < ITENS.length ? (est.i + ' de ' + ITENS.length) : 'concluido';
+
+  if(!est.i && !localStorage.getItem(CH + '_viu')){
+    localStorage.setItem(CH + '_viu', '1');
+    app.innerHTML = '<div class="cx"><h2>Qual categoria esta melhor?</h2>' +
+      '<div class="sub">Sao ' + ITENS.length + ' produtos. Leva uns 5 minutos.</div>' +
+      '<ol><li>Voce ve a foto e o nome do produto.</li>' +
+      '<li>Aparecem <b>duas categorias</b>. Clique na que voce acha melhor.</li>' +
+      '<li>Se nenhuma das duas servir, use o botao de baixo.</li></ol>' +
+      '<div class="sub" style="margin-top:14px">As duas opcoes vem de duas versoes ' +
+      'diferentes do catalogo, e a ordem esta embaralhada &mdash; nem voce nem eu sabemos ' +
+      'qual e qual enquanto responde. O placar aparece so no fim.</div>' +
+      '<button class="bt verde" onclick="render()">Comecar</button></div>';
+    return;
+  }
+
+  if(est.i >= ITENS.length){ placar(app); return; }
+
+  var it = ITENS[est.i];
+  app.innerHTML = '<div class="cx">' +
+    '<div class="barra"><div style="width:' + (est.i/ITENS.length*100) + '%"></div></div>' +
+    '<img class="foto" src="../revisor-categorias/fotos/' + esc(it.f) + '" alt="">' +
+    '<div class="nome">' + esc(it.n) + '</div>' +
+    '<div class="cod">codigo ' + esc(it.c) + '</div>' +
+    '<div class="ops">' +
+      '<button class="op" onclick="votar(\'A\')">' + esc(it.a) + '</button>' +
+      '<button class="op" onclick="votar(\'B\')">' + esc(it.b) + '</button>' +
+    '</div>' +
+    '<button class="bt nenhuma" onclick="votar(\'N\')">Nenhuma das duas serve</button></div>';
+}
+
+function placar(app){
+  var v1 = 0, v2 = 0, nen = 0;
+  est.votos.forEach(function(v){
+    if(v.escolha === 'N'){ nen++; }
+    else if(v.escolha === v.v2){ v2++; }
+    else { v1++; }
+  });
+  var val = v1 + v2;
+  var h = '<div class="cx"><h2>Resultado</h2>' +
+    '<div class="sub">' + est.votos.length + ' produtos julgados</div>' +
+    '<div class="linha"><span>Versao ATUAL (a que esta no site)</span><b>' + v1 + '</b></div>' +
+    '<div class="linha"><span>Versao NOVA</span><b>' + v2 + '</b></div>' +
+    '<div class="linha"><span>Nenhuma das duas</span><b>' + nen + '</b></div>';
+  if(val){
+    var pct = Math.round(v2 / val * 100);
+    h += '<div class="placar"><div class="n">' + pct + '%</div>' +
+         '<div class="sub">das vezes a versao NOVA ganhou</div></div>';
+    h += '<div class="venc">' + (pct >= 60
+      ? '<b>A versao nova ganhou com folga.</b> Pode publicar.'
+      : (pct >= 45
+        ? '<b>Empate tecnico.</b> A versao nova nao melhorou o suficiente para justificar a troca sozinha.'
+        : '<b>A versao atual ganhou.</b> Nao publicar a nova como esta.')) +
+      '<br>E ' + nen + ' produtos onde nenhuma serve &mdash; esses precisam de categoria nova ou revisao.' +
+      '</div>';
+  }
+  h += '<button class="bt verde" onclick="baixar()">Baixar resultado e mandar para o Anderson</button>' +
+       '<button class="bt" style="background:#eef1f7;color:#6b7699" onclick="recomecar()">Refazer do zero</button>';
+  app.innerHTML = h + '</div>';
+}
+
+function baixar(){
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(est.votos, null, 1)],
+    {type:'application/json'}));
+  a.download = 'duelo_resultado.json';
+  a.click();
+}
+render();
+</script></body></html>
