@@ -1,0 +1,117 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Fotos que voce trocou - CABORGE</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#f4f5f7;color:#1a1d23}
+.top{background:#fff;border-bottom:1px solid #e3e6ea;padding:10px 14px;position:sticky;top:0;z-index:9;display:flex;align-items:center;gap:10px}
+.top b{font-size:15px}
+.cx{max-width:560px;margin:0 auto;padding:14px}
+h2{margin:0 0 4px;font-size:20px}
+.sub{color:#5b6472;font-size:14px;margin-bottom:14px}
+.bt{border:0;border-radius:10px;padding:12px 16px;font-size:15px;font-weight:600;cursor:pointer;background:#e9ecf1;color:#1a1d23}
+.bt.azul{background:#2f6feb;color:#fff}
+.grade{display:grid;grid-template-columns:1fr;gap:10px}
+.cat{background:#fff;border:1px solid #e3e6ea;border-radius:12px;padding:12px;cursor:pointer;text-align:left}
+.cat b{display:block;font-size:14px;margin-bottom:3px}
+.cat span{color:#5b6472;font-size:12px}
+.cat.pronta{border-color:#0a7a45;background:#f2fbf6}
+.cat.perigo{border-color:#c0392b;background:#fdf1ef}
+.card{background:#fff;border:1px solid #e3e6ea;border-radius:14px;padding:14px;text-align:center}
+.par{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.lado{min-width:0}
+.rot{font-size:11px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;padding:4px 0;border-radius:6px 6px 0 0;color:#fff}
+.rot.erp{background:#8a93a0}
+.rot.nova{background:#2f6feb}
+.foto{width:100%;height:210px;object-fit:contain;background:#fff;border:1px solid #e3e6ea;border-top:0;border-radius:0 0 8px 8px}
+.cod{display:inline-block;background:#1a1d23;color:#fff;font-weight:700;letter-spacing:.5px;border-radius:8px;padding:5px 12px;font-size:17px;margin:12px 0 6px}
+.nome{font-size:16px;font-weight:600;line-height:1.3;word-break:break-word}
+.ver{margin-top:10px;padding:8px 10px;border-radius:8px;font-size:13px;text-align:left}
+.ver.dif{background:#fdf1ef;border:1px solid #f0b8b0;color:#7a1f14}
+.ver.ok{background:#f2fbf6;border:1px solid #b7e4c9;color:#0a5a33}
+.ver.neutro{background:#fff7e6;border:1px solid #ffe0a3;color:#7a5b12}
+.duplo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.gg{width:100%;padding:17px 0;font-size:16px;font-weight:700;border-radius:14px;border:0;color:#fff;cursor:pointer}
+.gg.manter{background:#5b6472}
+.gg.usar{background:#0a7a45}
+.gg:active{transform:scale(.99)}
+.barra{height:6px;background:#e3e6ea;border-radius:3px;overflow:hidden;margin:10px 0 4px}
+.barra i{display:block;height:100%;background:#2f6feb}
+.linha{display:flex;justify-content:space-between;color:#5b6472;font-size:13px}
+.ok{background:#f2fbf6;border:1px solid #b7e4c9;border-radius:10px;padding:12px;font-size:14px;margin-top:14px}
+input{width:100%;padding:12px;border:1px solid #d5dae1;border-radius:10px;font-size:16px}
+.rodape{display:flex;gap:10px;margin-top:14px}
+.rodape .bt{flex:1}
+.mini{font-size:13px;color:#5b6472}
+</style>
+<div class="top"><b>Fotos que voce trocou</b><span id="quem" class="mini"></span>
+  <span style="flex:1"></span>
+  <button class="bt" style="padding:7px 12px;font-size:13px" onclick="baixar()">Baixar respostas</button></div>
+<div id="app"></div>
+<script>
+var DADOS = {"itens":[{"K":"016690","N":"CHAVE PINO E CURVADA MAKITA","A":"erp_016690.webp","B":"nova_016690.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce tinha apontado este codigo como foto errada no ERP e depois corrigiu la.  Categoria: FERRAMENTAS"},{"K":"020348","N":"ABRAÇADEIRA RADIAL INOX 7MMX METALMATRIX","A":"erp_020348.webp","B":"nova_020348.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce tinha apontado este codigo como foto errada no ERP e depois corrigiu la.  Categoria: FIXACAO"},{"K":"020349","N":"ABRAÇADEIRA RADIAL INOX 7MMX METALMATRIX","A":"erp_020349.webp","B":"nova_020349.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce tinha apontado este codigo como foto errada no ERP e depois corrigiu la.  Categoria: FIXACAO"},{"K":"024024","N":"TE METAL FEMEA NPT MDM","A":"erp_024024.webp","B":"nova_024024.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce tinha apontado este codigo como foto errada no ERP e depois corrigiu la.  Categoria: HIDRAULICA E CONEXOES"},{"K":"024023","N":"TE METAL FEMEA NPT MDM","A":"erp_024023.webp","B":"nova_024023.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce tinha apontado este codigo como foto errada no ERP e depois corrigiu la.  Categoria: HIDRAULICA E CONEXOES"},{"K":"023949","N":"TE METAL FEMEA NPT MDM","A":"erp_023949.webp","B":"nova_023949.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce tinha apontado este codigo como foto errada no ERP e depois corrigiu la.  Categoria: HIDRAULICA E CONEXOES"},{"K":"014540","N":"ESCOVA CIRCULA = TRANCADA ROCAST","A":"erp_014540.webp","B":"nova_014540.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce tinha apontado este codigo como foto errada no ERP e depois corrigiu la.  Categoria: ABRASIVOS E CORTE"},{"K":"023831","N":"TOUCA ARAME BRIM AZUL PLASTCOR","A":"erp_023831.webp","B":"nova_023831.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce tinha apontado este codigo como foto errada no ERP e depois corrigiu la.  Categoria: EPI E SEGURANCA"},{"K":"023952","N":"UNIAO MACHO X FEMEA /4NP XM , MDM","A":"erp_023952.webp","B":"nova_023952.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce tinha apontado este codigo como foto errada no ERP e depois corrigiu la.  Categoria: HIDRAULICA E CONEXOES"},{"K":"017028","N":"PLAFONIER PVC BRANCO QUADRADO ENERLUX","A":"erp_017028.webp","B":"nova_017028.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce trocou a foto deste no ERP depois de aprovar a minha.  Categoria: ILUMINACAO"},{"K":"024531","N":"CAP AQ RF CPVC DN PLASTILIT","A":"erp_024531.webp","B":"nova_024531.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce tinha apontado este codigo como foto errada no ERP e depois corrigiu la.  Categoria: HIDRAULICA E CONEXOES"},{"K":"024532","N":"CAP AQ RF CPVC DN PLASTILIT","A":"erp_024532.webp","B":"nova_024532.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce tinha apontado este codigo como foto errada no ERP e depois corrigiu la.  Categoria: HIDRAULICA E CONEXOES"},{"K":"017597","N":"VIRA MACHO TIPO DESANDADOR M3-M10 OU / - ROCAST","A":"erp_017597.webp","B":"nova_017597.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce tinha apontado este codigo como foto errada no ERP e depois corrigiu la.  Categoria: FERRAMENTAS"},{"K":"017598","N":"VIRA MACHO TIPO DESANDADOR M4-M12 OU / - ROCAST","A":"erp_017598.webp","B":"nova_017598.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce tinha apontado este codigo como foto errada no ERP e depois corrigiu la.  Categoria: FERRAMENTAS"},{"K":"024123","N":"TE METAL FEMEA M , MDM","A":"erp_024123.webp","B":"nova_024123.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce trocou a foto deste no ERP depois de aprovar a minha.  Categoria: HIDRAULICA E CONEXOES"},{"K":"020346","N":"ABRAÇADEIRA RADIAL INOX 5MMX METALMATRIX","A":"erp_020346.webp","B":"nova_020346.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce tinha apontado este codigo como foto errada no ERP e depois corrigiu la.  Categoria: FIXACAO"},{"K":"022259","N":"MANGUEIRA FLEXIVEL MAGICA MTS NOLL","A":"erp_022259.webp","B":"nova_022259.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce trocou a foto deste no ERP depois de aprovar a minha.  Categoria: MANGUEIRAS E ACOPLAMENTOS"},{"K":"023950","N":"TE METAL FEMEA NPT MDM","A":"erp_023950.webp","B":"nova_023950.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce tinha apontado este codigo como foto errada no ERP e depois corrigiu la.  Categoria: HIDRAULICA E CONEXOES"},{"K":"013612","N":"PORCA COBRE16MMXM , MDM","A":"erp_013612.webp","B":"nova_013612.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce tinha apontado este codigo como foto errada no ERP e depois corrigiu la.  Categoria: FIXACAO"},{"K":"013636","N":"UNIAO MACHO X FEMEA COBRE , /2NPT FEMEA MDM","A":"erp_013636.webp","B":"nova_013636.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce trocou a foto deste no ERP depois de aprovar a minha.  Categoria: HIDRAULICA E CONEXOES"},{"K":"020347","N":"ABRAÇADEIRA RADIAL INOX 7MMX METALMATRIX","A":"erp_020347.webp","B":"nova_020347.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce tinha apontado este codigo como foto errada no ERP e depois corrigiu la.  Categoria: FIXACAO"},{"K":"020345","N":"ABRAÇADEIRA RADIAL INOX 5MMX METALMATRIX","A":"erp_020345.webp","B":"nova_020345.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce trocou a foto deste no ERP depois de aprovar a minha.  Categoria: FIXACAO"},{"K":"012894","N":"PARAFUSO FIXER FLANGEADO CX/ CISER","A":"erp_012894.webp","B":"nova_012894.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce tinha apontado este codigo como foto errada no ERP e depois corrigiu la.  Categoria: FIXACAO"},{"K":"023562","N":"BOMBONA LITRO BOCAS ALCAS ROSIL","A":"erp_023562.webp","B":"nova_023562.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce tinha apontado este codigo como foto errada no ERP e depois corrigiu la.  Categoria: LIMPEZA E UTILIDADES"},{"K":"023306","N":"ANCINHO DENTES LEVE SEM CABO TRAMONTINA","A":"erp_023306.webp","B":"nova_023306.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce tinha apontado este codigo como foto errada no ERP e depois corrigiu la.  Categoria: FERRAMENTAS"},{"K":"022250","N":"LIMPA FOSSA E CAIXA DE GORDURA ENZMAX","A":"erp_022250.webp","B":"nova_022250.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce tinha apontado este codigo como foto errada no ERP e depois corrigiu la.  Categoria: LIMPEZA E UTILIDADES"},{"K":"013605","N":"PORCA COBRE MDM","A":"erp_013605.webp","B":"nova_013605.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce trocou a foto deste no ERP depois de aprovar a minha.  Categoria: FIXACAO"},{"K":"013609","N":"PORCA COBRE MDM","A":"erp_013609.webp","B":"nova_013609.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce trocou a foto deste no ERP depois de aprovar a minha.  Categoria: FIXACAO"},{"K":"022433","N":"BOMBA MANUAL PORTATIL TRANSFERENCUA DE LIQUIDOS E OLEOS","A":"erp_022433.webp","B":"nova_022433.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce tinha apontado este codigo como foto errada no ERP e depois corrigiu la.  Categoria: HIDRAULICA E CONEXOES"},{"K":"024011","N":"JOGO CHAVE TORX T T50 PLUS LOTUS","A":"erp_024011.webp","B":"nova_024011.webp","V":"TROCADA","T":"TROCADA","C":"","E":"a que VOCE acabou de por no ERP","N2":"a que voce tinha aprovado de mim","P":"Voce tinha apontado este codigo como foto errada no ERP e depois corrigiu la.  Categoria: FERRAMENTAS"}],"grupos":[{"V":"TROCADA","R":"Voce trocou no ERP — qual fica?"}]};
+var CH = 'caborge_trocadas_v1';
+var resp = JSON.parse(localStorage.getItem(CH) || '{"vendedor":"","r":{}}');
+if(!resp.r) resp.r = {};
+var grupoAtual = null, i = 0;
+function salvar(){ localStorage.setItem(CH, JSON.stringify(resp)); }
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+function doGrupo(g){ return DADOS.itens.filter(function(p){ return p.V === g; }); }
+function feitos(g){ return doGrupo(g).filter(function(p){ return resp.r[p.K]; }).length; }
+function baixar(){
+  var u = 0, m = 0; for(var k in resp.r){ if(resp.r[k]==='USAR') u++; else m++; }
+  var out = { vendedor: resp.vendedor||'', rodada:'conferencia erp', data:new Date().toISOString().slice(0,16).replace('T',' '),
+              total: u+m, usar_a_nova: u, manter_a_do_erp: m, respostas: resp.r };
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(out,null,1)],{type:'application/json'}));
+  a.download = 'trocadas_' + (resp.vendedor||'x').replace(/[^A-Za-z0-9]/g,'_') + '.json';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  localStorage.setItem(CH+'_baixou','1');
+}
+function render(){
+  var app = document.getElementById('app');
+  document.getElementById('quem').textContent = resp.vendedor ? '· '+resp.vendedor : '';
+  if(!resp.vendedor){ app.innerHTML = '<div class="cx"><h2>Quem esta conferindo?</h2><div class="sub">Seu primeiro nome.</div><input id="nm" placeholder="ex: anderson" autocomplete="off"><div class="rodape"><button class="bt azul" onclick="setNome()">Comecar</button></div></div>'; return; }
+  if(!grupoAtual){ telaGrupos(app); return; }
+  telaItem(app);
+}
+function setNome(){ var v=document.getElementById('nm').value.trim(); if(!v) return; resp.vendedor=v; salvar(); render(); }
+function telaGrupos(app){
+  var tot = DADOS.itens.length, ok = Object.keys(resp.r).length;
+  var h = '<div class="cx"><h2>Foto do ERP x foto nova</h2>' +
+    '<div class="sub">Entre 18/08 e 11/09 voce trocou a foto destes no ERP — e eu tambem tenho uma aprovada por voce para o mesmo codigo. Nenhuma das duas e a foto velha errada. A esquerda a que esta no ERP agora, a direita a minha.</div>' +
+    '<div class="linha"><span>'+ok+' de '+tot+' decididos</span><span>'+Math.round(tot?ok*100/tot:0)+'%</span></div><div class="grade" style="margin-top:14px">';
+  DADOS.grupos.forEach(function(g){
+    var n = doGrupo(g.V).length, f = feitos(g.V); if(!n) return;
+    h += '<button class="cat'+(f>=n?' pronta':(g.V==='PRODUTO_DIFERENTE'?' perigo':''))+'" onclick="abrir('+JSON.stringify(g.V).replace(/"/g,'&quot;')+')"><b>'+esc(g.R)+'</b><span>'+f+' de '+n+(f>=n?' · pronta':'')+'</span></button>';
+  });
+  h += '</div>';
+  if(ok) h += '<div class="ok">Ja tem resposta para '+ok+'. Clique em <b>Baixar respostas</b> quando quiser mandar.</div>';
+  app.innerHTML = h + '</div>';
+}
+function abrir(g){ grupoAtual=g; var l=doGrupo(g); i=0; for(var k=0;k<l.length;k++){ if(!resp.r[l[k].K]){ i=k; break; } } window.scrollTo(0,0); render(); }
+function telaItem(app){
+  var l = doGrupo(grupoAtual);
+  if(i >= l.length){ app.innerHTML = '<div class="cx"><h2>Terminou este grupo</h2><div class="ok">'+l.length+' pares conferidos.</div><div class="rodape"><button class="bt" onclick="voltar()">Outro grupo</button><button class="bt azul" onclick="baixar()">Baixar respostas</button></div></div>'; return; }
+  var p = l[i], m = resp.r[p.K], f = feitos(grupoAtual);
+  var cls = 'neutro';
+  var txt = '<b>Voce trocou este no ERP</b>' + (p.C!==''&&p.C!==undefined?' · certeza '+p.C:'') +
+            (p.E?'<br>ERP: '+esc(p.E):'') + (p.N2?'<br>Nova: '+esc(p.N2):'') + (p.P?'<br>'+esc(p.P):'');
+  app.innerHTML = '<div class="cx"><div class="linha"><span>'+esc(ROT[grupoAtual]||grupoAtual)+'</span><span>'+(i+1)+' de '+l.length+'</span></div>' +
+    '<div class="barra"><i style="width:'+(f*100/l.length)+'%"></i></div><div class="card"><div class="par">' +
+    '<div class="lado"><div class="rot erp">No ERP hoje</div><img class="foto" src="fotos/'+p.A+'" alt="" loading="eager"></div>' +
+    '<div class="lado"><div class="rot nova">A minha</div><img class="foto" src="fotos/'+p.B+'" alt="" loading="eager"></div></div>' +
+    '<div class="cod">'+esc(p.K)+'</div><div class="nome">'+esc(p.N)+'</div>' +
+    '<div class="ver '+cls+'">'+txt+'</div>' +
+    '<div class="duplo"><button class="gg manter" onclick="marcar(\'MANTER\')">Fica a sua'+(m==='MANTER'?' ✓':'')+'</button>' +
+    '<button class="gg usar" onclick="marcar(\'USAR\')">Usar a minha'+(m==='USAR'?' ✓':'')+'</button></div></div>' +
+    '<div class="rodape"><button class="bt" onclick="anterior()">&larr; Voltar</button><button class="bt" onclick="pular()">Pular</button><button class="bt" onclick="voltar()">Grupos</button></div></div>';
+}
+var ROT = {}; DADOS.grupos.forEach(function(g){ ROT[g.V]=g.R; });
+function marcar(v){ var l=doGrupo(grupoAtual); resp.r[l[i].K]=v; salvar(); i++; window.scrollTo(0,0); render(); }
+function pular(){ i++; window.scrollTo(0,0); render(); }
+function anterior(){ if(i>0) i--; window.scrollTo(0,0); render(); }
+function voltar(){ grupoAtual=null; window.scrollTo(0,0); render(); }
+window.onbeforeunload = function(){ if(Object.keys(resp.r).length && !localStorage.getItem(CH+'_baixou')) return 'Voce tem respostas nao baixadas.'; };
+render();
+</script>
