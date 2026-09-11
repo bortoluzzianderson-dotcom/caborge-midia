@@ -135,8 +135,8 @@ function pulados(){
   DADOS.categorias.forEach(function(c){
     var lista = visiveis().filter(function(p){ return p.C === c; });
     var ate = -1;
-    lista.forEach(function(p, k){ if(resp.r[p.N]) ate = k; });
-    for(var k = 0; k <= ate; k++){ if(!resp.r[lista[k].N]) fora.push(lista[k].N); }
+    lista.forEach(function(p, k){ if(respondido(p)) ate = k; });
+    for(var k = 0; k <= ate; k++){ if(!respondido(lista[k])) fora.push(lista[k].N); }
   });
   return fora;
 }
@@ -154,7 +154,16 @@ function daCat(c){
   }
   return visiveis().filter(function(p){ return p.C === c; });
 }
-function feitos(c){ return daCat(c).filter(function(p){ return resp.r[p.N]; }).length; }
+// O progresso do DONO nao pode depender do celular em que ele abriu.
+//
+// O que a pessoa respondeu fica no localStorage do aparelho dela. Para o
+// vendedor isso basta. Para o dono nao: se ele abrir o link em outro celular,
+// ou limpar o navegador, a tela mostraria "0 de 207" numa aba que ele terminou
+// em 03/09 — e ele refaria o trabalho, que e exatamente a armadilha em que o
+// bruno caiu. As respostas dele que eu ja li estao em DADOS.decididos, entao
+// contam como feitas venha de onde vier.
+function respondido(p){ return !!resp.r[p.N] || (souODono() && !!DECIDIDO[p.N]); }
+function feitos(c){ return daCat(c).filter(respondido).length; }
 
 function baixar(){
   var a_ = 0, b_ = 0, n_ = 0, m_ = 0;
@@ -200,7 +209,7 @@ function setNome(){
 function telaCategorias(app){
   var vis = visiveis();
   var tot = vis.length, ok = 0;
-  vis.forEach(function(p){ if(resp.r[p.N]) ok++; });
+  vis.forEach(function(p){ if(respondido(p)) ok++; });
   var ocultos = DADOS.produtos.length - vis.length;
   var h = '<div class="cx"><h2>Escolha uma categoria</h2>' +
     '<div class="sub">Voce ve a foto que esta no cadastro hoje e duas opcoes ' +
@@ -277,7 +286,7 @@ function abrir(c){
   catAtual = c;
   var lista = daCat(c);
   i = 0;
-  for(var k = 0; k < lista.length; k++){ if(!resp.r[lista[k].N]){ i = k; break; } }
+  for(var k = 0; k < lista.length; k++){ if(!respondido(lista[k])){ i = k; break; } }
   window.scrollTo(0,0); render();
 }
 
