@@ -1,0 +1,117 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Fundo branco - CABORGE</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#f4f5f7;color:#1a1d23}
+.top{background:#fff;border-bottom:1px solid #e3e6ea;padding:10px 14px;position:sticky;top:0;z-index:9;display:flex;align-items:center;gap:10px}
+.top b{font-size:15px}
+.cx{max-width:560px;margin:0 auto;padding:14px}
+h2{margin:0 0 4px;font-size:20px}
+.sub{color:#5b6472;font-size:14px;margin-bottom:14px}
+.bt{border:0;border-radius:10px;padding:12px 16px;font-size:15px;font-weight:600;cursor:pointer;background:#e9ecf1;color:#1a1d23}
+.bt.azul{background:#2f6feb;color:#fff}
+.grade{display:grid;grid-template-columns:1fr;gap:10px}
+.cat{background:#fff;border:1px solid #e3e6ea;border-radius:12px;padding:12px;cursor:pointer;text-align:left}
+.cat b{display:block;font-size:14px;margin-bottom:3px}
+.cat span{color:#5b6472;font-size:12px}
+.cat.pronta{border-color:#0a7a45;background:#f2fbf6}
+.cat.perigo{border-color:#c0392b;background:#fdf1ef}
+.card{background:#fff;border:1px solid #e3e6ea;border-radius:14px;padding:14px;text-align:center}
+.par{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.lado{min-width:0}
+.rot{font-size:11px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;padding:4px 0;border-radius:6px 6px 0 0;color:#fff}
+.rot.erp{background:#8a93a0}
+.rot.nova{background:#2f6feb}
+.foto{width:100%;height:210px;object-fit:contain;background:#fff;border:1px solid #e3e6ea;border-top:0;border-radius:0 0 8px 8px}
+.cod{display:inline-block;background:#1a1d23;color:#fff;font-weight:700;letter-spacing:.5px;border-radius:8px;padding:5px 12px;font-size:17px;margin:12px 0 6px}
+.nome{font-size:16px;font-weight:600;line-height:1.3;word-break:break-word}
+.ver{margin-top:10px;padding:8px 10px;border-radius:8px;font-size:13px;text-align:left}
+.ver.dif{background:#fdf1ef;border:1px solid #f0b8b0;color:#7a1f14}
+.ver.ok{background:#f2fbf6;border:1px solid #b7e4c9;color:#0a5a33}
+.ver.neutro{background:#fff7e6;border:1px solid #ffe0a3;color:#7a5b12}
+.duplo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.gg{width:100%;padding:17px 0;font-size:16px;font-weight:700;border-radius:14px;border:0;color:#fff;cursor:pointer}
+.gg.manter{background:#5b6472}
+.gg.usar{background:#0a7a45}
+.gg:active{transform:scale(.99)}
+.barra{height:6px;background:#e3e6ea;border-radius:3px;overflow:hidden;margin:10px 0 4px}
+.barra i{display:block;height:100%;background:#2f6feb}
+.linha{display:flex;justify-content:space-between;color:#5b6472;font-size:13px}
+.ok{background:#f2fbf6;border:1px solid #b7e4c9;border-radius:10px;padding:12px;font-size:14px;margin-top:14px}
+input{width:100%;padding:12px;border:1px solid #d5dae1;border-radius:10px;font-size:16px}
+.rodape{display:flex;gap:10px;margin-top:14px}
+.rodape .bt{flex:1}
+.mini{font-size:13px;color:#5b6472}
+</style>
+<div class="top"><b>Fundo branco</b><span id="quem" class="mini"></span>
+  <span style="flex:1"></span>
+  <button class="bt" style="padding:7px 12px;font-size:13px" onclick="baixar()">Baixar respostas</button></div>
+<div id="app"></div>
+<script>
+var DADOS = {"itens":[{"K":"001255","N":"CHUMBADOR QUIMICO BI COMPONENTE ANCORA","A":"orig_001255.webp","B":"branco_001255.webp","V":"Confira com cuidado","T":"FUNDO","C":"","E":"","N2":"","P":"ATENCAO: ficou so o cartucho, sem o aplicador (o produto e o cartucho)"},{"K":"021895","N":"CHAVE PARA JUNTA DO BRACO AXIAL DA CAIXA DE DIRECAO VONDER","A":"orig_021895.webp","B":"branco_021895.webp","V":"Confira com cuidado","T":"FUNDO","C":"","E":"","N2":"","P":"ATENCAO: a borda da peca ficou manchada"},{"K":"024010","N":"JOGO CHAVE TORX T T40 CANIVETE PLUS LOTUS","A":"orig_024010.webp","B":"branco_024010.webp","V":"Confira com cuidado","T":"FUNDO","C":"","E":"","N2":"","P":"ATENCAO: ficou so a ferramenta, sem a embalagem"},{"K":"024022","N":"PISTOLA JATO DE ESPUMA VONDER","A":"orig_024022.webp","B":"branco_024022.webp","V":"Confira com cuidado","T":"FUNDO","C":"","E":"","N2":"","P":"ATENCAO: o recorte deixou so o frasco: sumiram a pistola e a embalagem"},{"K":"024149","N":"ESPACADOR NIVEL 100PC CRUZETA GRAFF","A":"orig_024149.webp","B":"branco_024149.webp","V":"Confira com cuidado","T":"FUNDO","C":"","E":"","N2":"","P":"ATENCAO: sobrou parte do cenario"},{"K":"024150","N":"ESPACADOR NIVEL 100PC CRUZETA GRAFF","A":"orig_024150.webp","B":"branco_024150.webp","V":"Confira com cuidado","T":"FUNDO","C":"","E":"","N2":"","P":"ATENCAO: sobrou parte do cenario"},{"K":"024151","N":"ESPACADOR NIVEL 100PC CRUZETA GRAFF","A":"orig_024151.webp","B":"branco_024151.webp","V":"Confira com cuidado","T":"FUNDO","C":"","E":"","N2":"","P":"ATENCAO: sobrou parte do cenario"},{"K":"024152","N":"ESPACADOR NIVEL 100PC CRUZETA GRAFF","A":"orig_024152.webp","B":"branco_024152.webp","V":"Confira com cuidado","T":"FUNDO","C":"","E":"","N2":"","P":"ATENCAO: sobrou parte do cenario"},{"K":"024366","N":"MANGUEIRA MICROFUROS COM METROS MODELO I VONDER","A":"orig_024366.webp","B":"branco_024366.webp","V":"Confira com cuidado","T":"FUNDO","C":"","E":"","N2":"","P":"ATENCAO: a mangueira virou uma linha fraca"},{"K":"002811","N":"VELA FILTRO BARRO ELITE","A":"orig_002811.webp","B":"branco_002811.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"003133","N":"INFLADOR DUPLO RF","A":"orig_003133.webp","B":"branco_003133.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"003261","N":"GRAMPEADOR PREMIUM ROCAMA","A":"orig_003261.webp","B":"branco_003261.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"004041","N":"LUVA SOLDAVEL REDUCAO KRONA","A":"orig_004041.webp","B":"branco_004041.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"006988","N":"AGULHA PARA PREPARADOR DE REPAROS VONDER","A":"orig_006988.webp","B":"branco_006988.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"007533","N":"TELEFONE SEM FIO TS COM ID INTELBRAS","A":"orig_007533.webp","B":"branco_007533.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"009564","N":"UNIAO PLUG REDUCAO 08MMX CONECFIT","A":"orig_009564.webp","B":"branco_009564.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"009735","N":"PINO ADAPTADOR 2P+T PARA CHATO ILUMI","A":"orig_009735.webp","B":"branco_009735.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"010947","N":"INTERRUPTOR SX TECLA PARA CAMPAINHA COM CAIXA ILUMI","A":"orig_010947.webp","B":"branco_010947.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"011231","N":"LUVA NBR CINZA T9=G KALIPSO","A":"orig_011231.webp","B":"branco_011231.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"011413","N":"RECIBO ALUGUEL FS COM CANHOTO TAMOIO","A":"orig_011413.webp","B":"branco_011413.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"012967","N":"CONJUNTO PULSADO PARA CAMPAINHA ILUMI","A":"orig_012967.webp","B":"branco_012967.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"015227","N":"CHAVE PARTIDA DIRETA CPS - ( , - , ) VAC SOPRANO","A":"orig_015227.webp","B":"branco_015227.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"015228","N":"CHAVE PARTIDA DIRETA CPS - ( , - , ) VAC SOPRANO","A":"orig_015228.webp","B":"branco_015228.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"015934","N":"SPRAY PRATA METALICA CHEMICOLOR","A":"orig_015934.webp","B":"branco_015934.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"018064","N":"TELEFONE SEM FIO TS COM ID INTELBRAS","A":"orig_018064.webp","B":"branco_018064.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"018729","N":"CONJUNTO MOTO PVC PRETO P WORKER","A":"orig_018729.webp","B":"branco_018729.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"021145","N":"CORANTE BISNAGA AZUL XADREZ","A":"orig_021145.webp","B":"branco_021145.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"021398","N":"POLIA FERRO A3 MADEMIL","A":"orig_021398.webp","B":"branco_021398.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"021400","N":"POLIA FERRO A3 MADEMIL","A":"orig_021400.webp","B":"branco_021400.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"021608","N":"POLIA FERRO A3 MADEMIL","A":"orig_021608.webp","B":"branco_021608.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"021627","N":"DISCO DESBASTE X PFERD","A":"orig_021627.webp","B":"branco_021627.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"021875","N":"POLIA FERRO A3 MADEMIL","A":"orig_021875.webp","B":"branco_021875.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"022004","N":"TELA DE PROTECAO .20MT VERDE PLANA","A":"orig_022004.webp","B":"branco_022004.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"022581","N":"THINNER LITRO MAXNORTH","A":"orig_022581.webp","B":"branco_022581.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"023254","N":"ALICATE CORTA CABO . NOVE54","A":"orig_023254.webp","B":"branco_023254.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"023726","N":"FIO PARA ROCADEIRA NYLON .0MMX AJAX","A":"orig_023726.webp","B":"branco_023726.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"023727","N":"FIO PARA ROCADEIRA NYLON .4MMX AJAX","A":"orig_023727.webp","B":"branco_023727.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"023729","N":"FIO PARA ROCADEIRA NYLON .0MMX AJAX","A":"orig_023729.webp","B":"branco_023729.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"023730","N":"FIO PARA ROCADEIRA NYLON .0MMX AJAX","A":"orig_023730.webp","B":"branco_023730.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"023960","N":"JOGO DE ESPATULAS DE NYLON VONDE","A":"orig_023960.webp","B":"branco_023960.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"023963","N":"KIT PINCEIS LIMPEZA COM , , , ROMA","A":"orig_023963.webp","B":"branco_023963.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"024090","N":"FERRO SOLDA 180WX MAXX BRASFORT","A":"orig_024090.webp","B":"branco_024090.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"024091","N":"FERRO SOLDA 180WX MAXX BRASFORT","A":"orig_024091.webp","B":"branco_024091.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"024534","N":"JOELHO AQ DE TRANSICAO RF CPVC DN 22MMX PLASTILIT","A":"orig_024534.webp","B":"branco_024534.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""},{"K":"024535","N":"JOELHO AQ DE TRANSICAO RF CPVC DN 22MMX PLASTILIT","A":"orig_024535.webp","B":"branco_024535.webp","V":"Recorte limpo","T":"FUNDO","C":"","E":"","N2":"","P":""}],"grupos":[{"V":"Confira com cuidado","R":"Confira com cuidado"},{"V":"Recorte limpo","R":"Recorte limpo"}]};
+var CH = 'caborge_fundo_v1';
+var resp = JSON.parse(localStorage.getItem(CH) || '{"vendedor":"","r":{}}');
+if(!resp.r) resp.r = {};
+var grupoAtual = null, i = 0;
+function salvar(){ localStorage.setItem(CH, JSON.stringify(resp)); }
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+function doGrupo(g){ return DADOS.itens.filter(function(p){ return p.V === g; }); }
+function feitos(g){ return doGrupo(g).filter(function(p){ return resp.r[p.K]; }).length; }
+function baixar(){
+  var u = 0, m = 0; for(var k in resp.r){ if(resp.r[k]==='USAR') u++; else m++; }
+  var out = { vendedor: resp.vendedor||'', rodada:'conferencia erp', data:new Date().toISOString().slice(0,16).replace('T',' '),
+              total: u+m, usar_a_nova: u, manter_a_do_erp: m, respostas: resp.r };
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(out,null,1)],{type:'application/json'}));
+  a.download = 'fundo_' + (resp.vendedor||'x').replace(/[^A-Za-z0-9]/g,'_') + '.json';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  localStorage.setItem(CH+'_baixou','1');
+}
+function render(){
+  var app = document.getElementById('app');
+  document.getElementById('quem').textContent = resp.vendedor ? '· '+resp.vendedor : '';
+  if(!resp.vendedor){ app.innerHTML = '<div class="cx"><h2>Quem esta conferindo?</h2><div class="sub">Seu primeiro nome.</div><input id="nm" placeholder="ex: anderson" autocomplete="off"><div class="rodape"><button class="bt azul" onclick="setNome()">Comecar</button></div></div>'; return; }
+  if(!grupoAtual){ telaGrupos(app); return; }
+  telaItem(app);
+}
+function setNome(){ var v=document.getElementById('nm').value.trim(); if(!v) return; resp.vendedor=v; salvar(); render(); }
+function telaGrupos(app){
+  var tot = DADOS.itens.length, ok = Object.keys(resp.r).length;
+  var h = '<div class="cx"><h2>Original x fundo branco</h2>' +
+    '<div class="sub">Estas fotos do pacote nao tinham fundo branco. A esquerda a original, a direita com o fundo trocado por branco. O recorte automatico as vezes come parte do produto: se isso acontecer, fique com a original.</div>' +
+    '<div class="linha"><span>'+ok+' de '+tot+' decididos</span><span>'+Math.round(tot?ok*100/tot:0)+'%</span></div><div class="grade" style="margin-top:14px">';
+  DADOS.grupos.forEach(function(g){
+    var n = doGrupo(g.V).length, f = feitos(g.V); if(!n) return;
+    h += '<button class="cat'+(f>=n?' pronta':(g.V==='PRODUTO_DIFERENTE'?' perigo':''))+'" onclick="abrir('+JSON.stringify(g.V).replace(/"/g,'&quot;')+')"><b>'+esc(g.R)+'</b><span>'+f+' de '+n+(f>=n?' · pronta':'')+'</span></button>';
+  });
+  h += '</div>';
+  if(ok) h += '<div class="ok">Ja tem resposta para '+ok+'. Clique em <b>Baixar respostas</b> quando quiser mandar.</div>';
+  app.innerHTML = h + '</div>';
+}
+function abrir(g){ grupoAtual=g; var l=doGrupo(g); i=0; for(var k=0;k<l.length;k++){ if(!resp.r[l[k].K]){ i=k; break; } } window.scrollTo(0,0); render(); }
+function telaItem(app){
+  var l = doGrupo(grupoAtual);
+  if(i >= l.length){ app.innerHTML = '<div class="cx"><h2>Terminou este grupo</h2><div class="ok">'+l.length+' pares conferidos.</div><div class="rodape"><button class="bt" onclick="voltar()">Outro grupo</button><button class="bt azul" onclick="baixar()">Baixar respostas</button></div></div>'; return; }
+  var p = l[i], m = resp.r[p.K], f = feitos(grupoAtual);
+  var cls = p.P?'dif':'ok';
+  var txt = '<b>'+esc(p.P||'Recorte sem problema aparente')+'</b>' + (p.C!==''&&p.C!==undefined?' · certeza '+p.C:'') +
+            (p.E?'<br>ERP: '+esc(p.E):'') + (p.N2?'<br>Nova: '+esc(p.N2):'') + '';
+  app.innerHTML = '<div class="cx"><div class="linha"><span>'+esc(ROT[grupoAtual]||grupoAtual)+'</span><span>'+(i+1)+' de '+l.length+'</span></div>' +
+    '<div class="barra"><i style="width:'+(f*100/l.length)+'%"></i></div><div class="card"><div class="par">' +
+    '<div class="lado"><div class="rot erp">Original</div><img class="foto" src="fotos/'+p.A+'" alt="" loading="eager"></div>' +
+    '<div class="lado"><div class="rot nova">Fundo branco</div><img class="foto" src="fotos/'+p.B+'" alt="" loading="eager"></div></div>' +
+    '<div class="cod">'+esc(p.K)+'</div><div class="nome">'+esc(p.N)+'</div>' +
+    '<div class="ver '+cls+'">'+txt+'</div>' +
+    '<div class="duplo"><button class="gg manter" onclick="marcar(\'MANTER\')">Fica a original'+(m==='MANTER'?' ✓':'')+'</button>' +
+    '<button class="gg usar" onclick="marcar(\'USAR\')">Usar fundo branco'+(m==='USAR'?' ✓':'')+'</button></div></div>' +
+    '<div class="rodape"><button class="bt" onclick="anterior()">&larr; Voltar</button><button class="bt" onclick="pular()">Pular</button><button class="bt" onclick="voltar()">Grupos</button></div></div>';
+}
+var ROT = {}; DADOS.grupos.forEach(function(g){ ROT[g.V]=g.R; });
+function marcar(v){ var l=doGrupo(grupoAtual); resp.r[l[i].K]=v; salvar(); i++; window.scrollTo(0,0); render(); }
+function pular(){ i++; window.scrollTo(0,0); render(); }
+function anterior(){ if(i>0) i--; window.scrollTo(0,0); render(); }
+function voltar(){ grupoAtual=null; window.scrollTo(0,0); render(); }
+window.onbeforeunload = function(){ if(Object.keys(resp.r).length && !localStorage.getItem(CH+'_baixou')) return 'Voce tem respostas nao baixadas.'; };
+render();
+</script>
