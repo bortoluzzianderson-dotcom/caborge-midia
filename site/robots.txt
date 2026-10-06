@@ -1,8 +1,16 @@
 User-agent: *
 Allow: /
-Disallow: /revisor-categorias/
-Disallow: /duelo/
-Sitemap: https://caborge.com.br/sitemap.xml
+Disallow: /conferencia-completa/
+Disallow: /conferencia-erp/
 Disallow: /descricao/
 Disallow: /descricao-nome/
 Disallow: /descricao-nome-2/
+Disallow: /duelo/
+Disallow: /fotos-trocadas/
+Disallow: /fundo/
+Disallow: /fundo-base/
+Disallow: /revisor-fotos/
+Disallow: /revisor-novas/
+Disallow: /tintas/
+
+Sitemap: https://caborge.com.br/sitemap.xml
