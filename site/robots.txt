@@ -5,3 +5,4 @@ Disallow: /duelo/
 Sitemap: https://caborge.com.br/sitemap.xml
 Disallow: /descricao/
 Disallow: /descricao-nome/
+Disallow: /descricao-nome-2/
