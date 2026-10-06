@@ -245,6 +245,7 @@
     <nav class="main">
       <a onclick="go('home')">Início</a>
       <a onclick="go('home');S('sec-cats')">Categorias</a>
+      <a href="/produtos/" style="color:#43E97B;font-weight:800">Catálogo e orçamento</a>
       <a onclick="go('home');S('sec-blog')">Blog</a>
       <a onclick="go('home');S('sec-loja')">A loja</a>
       <a onclick="go('home');S('sec-contato')">Contato</a>
@@ -264,6 +265,7 @@
       <div><h4>Fale com a gente</h4>
         <a href="https://wa.me/556536651005" target="_blank" rel="noopener">WhatsApp (65) 3665-1005</a>
         <a href="https://instagram.com/caborgetemquasetudo" target="_blank" rel="noopener">Instagram @caborgetemquasetudo</a>
+        <a href="/produtos/">Catálogo e orçamento</a>
         <a onclick="go('home');S('sec-cats')">Todas as categorias</a>
       </div>
     </div>
@@ -471,7 +473,7 @@ function viewHome(){return `
     <p class="lead">Ferramentas, material elétrico e hidráulico, tintas, ferragens, jardinagem e EPI, com o atendimento de quem entende do assunto.</p>
     <div class="hero-cta">
       <a class="btn green" href="${wa}" target="_blank" rel="noopener">${IcCheck} Chamar no WhatsApp</a>
-      <a class="btn ghost" onclick="S('sec-cats')">Ver as 14 categorias</a>
+      <a class="btn ghost" href="/produtos/">Catálogo: monte o seu orçamento</a>
     </div>
     <div class="hero-strip">
       <div>${IcPin}<span><b>Av. Fernando Corrêa da Costa, 9500</b> · Cuiabá-MT</span></div>
@@ -482,7 +484,9 @@ function viewHome(){return `
 
  <section class="block" id="sec-cats"><div class="wrap">
    <div class="head-row"><span class="eyebrow">Explore por setor</span><h2>14 categorias, uma loja só</h2>
-     <p>Clique numa categoria para ver os produtos que a Caborge oferece.</p></div>
+     <p>Clique numa categoria para ver os produtos que a Caborge oferece — ou abra o
+     <a href="/produtos/" style="color:#43E97B;font-weight:800;text-decoration:underline">catálogo completo, com mais de 10 mil produtos</a>,
+     monte o seu orçamento e envie pelo WhatsApp.</p></div>
    <div class="cats">${CATS.map(catCard).join('')}</div>
  </div></section>
 
@@ -548,6 +552,14 @@ function viewHome(){return `
    </div>
  </div></section>`;}
 
+// as 14 categorias desta pagina sao as antigas; o catalogo tem as 24 do ERP.
+// Cada antiga leva para a nova que guarda os produtos dela (bombas ficam em
+// Hidraulica, decisao do dono em 25/08).
+const CAT_CATALOGO={'ferramentas-manuais':'ferramentas-manuais','ferramentas-eletricas':'ferramentas-eletricas',
+ 'material-eletrico':'eletrica','hidraulica':'hidraulica-e-conexoes','pintura':'pintura','ferragens':'ferragens',
+ 'fixacao':'fixacao','abrasivos-discos':'abrasivos-e-corte','solda':'solda-e-gas','jardinagem':'jardim-e-agro',
+ 'lavadoras-limpeza':'limpeza-e-utilidades','bombas-pressurizadores':'hidraulica-e-conexoes','iluminacao':'iluminacao',
+ 'epi':'epi-e-seguranca'};
 function viewCat(slug){const c=CATS.find(x=>x.slug===slug)||CATS[0];return `
  <section class="subhero"><div class="wrap"><div class="in">
    <div class="txt">
@@ -561,7 +573,8 @@ function viewCat(slug){const c=CATS.find(x=>x.slug===slug)||CATS[0];return `
    <div class="prods">${c.prod.map(p=>`<div class="prod"><span class="dot"></span><h4>${p}</h4></div>`).join('')}</div>
    <div class="note">${IcCheck} Amostra do setor — a Caborge tem <b>quase tudo</b>. Não achou? Pergunte no WhatsApp <b>(65) 3665-1005</b> ou passe na loja.</div>
    <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
-     <a class="btn green" href="${wa}" target="_blank" rel="noopener">${IcCheck} Perguntar no WhatsApp</a>
+     <a class="btn green" href="/produtos/${CAT_CATALOGO[c.slug]||''}${CAT_CATALOGO[c.slug]?'.html':''}">${IcCheck} Ver os produtos e montar orçamento</a>
+     <a class="btn navy" href="${wa}" target="_blank" rel="noopener">Perguntar no WhatsApp</a>
      <a class="btn navy" onclick="go('home');S('sec-cats')">Ver outras categorias</a>
    </div>
    <div class="head-row" style="margin-top:52px;margin-bottom:20px"><span class="eyebrow">Dicas & dúvidas de ${c.nome.toLowerCase()}</span><h2 style="font-size:26px">Aprenda antes de comprar</h2></div>
