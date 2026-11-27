@@ -1,0 +1,76 @@
+{
+ "modelos_veo": [],
+ "modelos_tts": [
+  "gemini-2.5-flash-preview-tts",
+  "gemini-2.5-pro-preview-tts",
+  "gemini-3.1-flash-tts-preview",
+  "gemini-3.8-flash-tts",
+  "gemini-3.8-flash-lite-tts"
+ ],
+ "veo_escolhido": "",
+ "tts_escolhido": "gemini-3.8-flash-tts",
+ "voz": [
+  {
+   "wav": "/home/runner/work/caborge-instagram-bot/caborge-instagram-bot/saida/teste_c/voz_Charon_estilo.wav",
+   "modelo": "gemini-3.8-flash-tts",
+   "erro": "",
+   "tokens_audio": 656,
+   "voz": "Charon",
+   "estilo": true,
+   "segundos": 7.7
+  },
+  {
+   "wav": "/home/runner/work/caborge-instagram-bot/caborge-instagram-bot/saida/teste_c/voz_Charon_seco.wav",
+   "modelo": "gemini-3.8-flash-tts",
+   "erro": "",
+   "tokens_audio": 340,
+   "voz": "Charon",
+   "estilo": false,
+   "segundos": 4.6
+  },
+  {
+   "wav": "/home/runner/work/caborge-instagram-bot/caborge-instagram-bot/saida/teste_c/voz_Orus_estilo.wav",
+   "modelo": "gemini-3.8-flash-tts",
+   "erro": "",
+   "tokens_audio": 693,
+   "voz": "Orus",
+   "estilo": true,
+   "segundos": 11.8
+  },
+  {
+   "wav": "/home/runner/work/caborge-instagram-bot/caborge-instagram-bot/saida/teste_c/voz_Orus_seco.wav",
+   "modelo": "gemini-3.8-flash-tts",
+   "erro": "",
+   "tokens_audio": 386,
+   "voz": "Orus",
+   "estilo": false,
+   "segundos": 5.4
+  },
+  {
+   "wav": "/home/runner/work/caborge-instagram-bot/caborge-instagram-bot/saida/teste_c/voz_Fenrir_estilo.wav",
+   "modelo": "gemini-3.8-flash-tts",
+   "erro": "",
+   "tokens_audio": 651,
+   "voz": "Fenrir",
+   "estilo": true,
+   "segundos": 7.4
+  },
+  {
+   "wav": "/home/runner/work/caborge-instagram-bot/caborge-instagram-bot/saida/teste_c/voz_Fenrir_seco.wav",
+   "modelo": "gemini-3.8-flash-tts",
+   "erro": "",
+   "tokens_audio": 368,
+   "voz": "Fenrir",
+   "estilo": false,
+   "segundos": 5.0
+  }
+ ],
+ "veo": {
+  "mp4": "",
+  "modelo": "",
+  "erro": "nenhum modelo Veo visível para esta chave",
+  "segundos_espera": 0,
+  "params": {},
+  "segundos_total": 0.0
+ }
+}
