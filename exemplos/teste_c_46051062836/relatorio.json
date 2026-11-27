@@ -1,0 +1,27 @@
+{
+ "modelos_veo": [],
+ "modelos_tts": [
+  "gemini-2.5-flash-preview-tts",
+  "gemini-2.5-pro-preview-tts",
+  "gemini-3.1-flash-tts-preview",
+  "gemini-3.8-flash-tts",
+  "gemini-3.8-flash-lite-tts"
+ ],
+ "veo_escolhido": "veo-3.1-fast-generate-preview",
+ "tts_escolhido": "gemini-3.8-flash-tts",
+ "voz": [],
+ "veo": {
+  "mp4": "",
+  "modelo": "veo-3.1-fast-generate-preview",
+  "erro": "404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/veo-3.1-fast-generate-preview is not found for API version v1beta, or is not supported for predictLongRunning. Call ModelService.ListModels to see the list of available models and their supported methods.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
+  "segundos_espera": 0,
+  "params": {
+   "aspectRatio": "9:16",
+   "durationSeconds": 6,
+   "resolution": "720p",
+   "personGeneration": "dont_allow",
+   "negativePrompt": "text, letters, words, numbers, logo, label, watermark, subtitles, caption, people, person, human, hand, fingers, face, red background"
+  },
+  "segundos_total": 0.3
+ }
+}
